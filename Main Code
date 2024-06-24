@@ -1,0 +1,43 @@
+# Rock, Paper, Scissors Game
+# The Choices
+choices <- c("rock", "paper", "scissors")
+
+# Game loop
+repeat {
+  # Computer makes a choice
+  computer_choice <- sample(choices,1)
+  
+  #player makes a choice
+  player_choice <-
+    tolower(readline(promp = "Enter your choice (rock, paper, scissors)"))
+  
+  #check if the player's choice is valid
+  if (!(player_choice %in% choices))
+  {
+      print("Invalid choice! Please enter rock, paper, or scissors.")
+        next
+  }
+  
+  # Announce the choices
+  cat("Computer chose", computer_choice, "\n")
+  cat("Player chose", player_choice, "\n")
+  
+  # Determine the winner
+    if (player_choice == computer_choice)
+    {print("It's a tie!")} 
+  else if ((player_choice == "rock" && computer_choice == "scissors") ||
+           (player_choice == "paper" && computer_choice == "rock") ||
+           (player_choice == "scissors" && computer_choice == "paper")) 
+  {print("You Win!")}
+  else {
+    print("Computer wins!")
+  }
+  
+  # Ask if the pleyer wants to play again
+  
+  play_again <-
+    tolower(readline(prompt = "Do you want to play again? (yes/no):"))
+  if (play_again != "yes") {
+    break
+  }
+}
